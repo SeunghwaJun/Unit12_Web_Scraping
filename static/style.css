@@ -1,0 +1,136 @@
+
+.banner {
+	background-image: url('img/mission_to_mars.jpg');
+	min-height: 400px;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+}
+
+.banner-text {
+	padding-top: 10%;
+}
+
+.banner-text h1{
+	font-family: "Source Sans Pro";
+	color: #ffffff;
+	font-size: 53px;
+	letter-spacing: 10px;
+	font-weight: 600;
+}
+
+.banner-text a{
+	color: #000;
+	font-size: 30px;
+	font-weight: 500;
+	letter-spacing: 3px;
+	line-height: 24px;
+	margin-top: 10px;
+	margin-bottom: 80px;
+	text-transform: uppercase;
+}
+
+.down-arrow{
+	padding-top: 100px;
+	opacity: 0.5;
+}
+
+.card{
+	border:none; 
+}
+
+#img-table{
+	background-color: #8d8d8d;
+}
+
+
+.card-body {
+	background-color:#8d8d8d;
+	position: relative;
+	border: 0;
+	margin: 0;
+	padding: 50px 3% 0;
+	padding-bottom: 30px;
+	background-size: cover;
+}
+
+.news h5 h6 {
+	font: 27px ;
+}
+.news p {
+	color: #c2cedc;
+	display: block;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	margin-top: 20px;
+}
+
+.news a{
+	color: #333333;
+	font-size: 15px;
+}
+
+
+h3{
+	margin-bottom: 3.5rem;
+}
+
+#font{
+	color:#201504;
+}
+
+#dark-font{
+	color: #333333;
+}
+
+.btn-custom, .btn-custom:focus {
+    outline: none;
+    padding: 1em;
+    background-color:#8d8d8d;
+    border: 0;
+}
+
+.btn-custom:hover {
+    box-shadow: 0 0 1em #ffe4be;
+}
+
+
+.modal-content {
+    background-color: #8d8d8d;
+    color:#ffe4be;
+    border-radius: 0rem;
+}
+
+#close-botton{
+	color: #ffe4be;
+}
+
+
+.modal-dialog {
+    max-width: 50rem;
+}
+
+.modal-body {
+    padding: 0rem;
+}
+
+
+.img-thumbnail {
+    border: 0 none;
+    background-color:#8d8d8d;
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 699px) {
+    body{ background-color:#8d8d8d; }
+  }
+
+  @media screen and (min-width: 700px) and (max-width: 999px) {
+    body{ background-color:#8d8d8d; }
+  }
+
+  @media screen and (min-width: 1000px) {
+    body{ background-color:#8d8d8d; }
+  }
+

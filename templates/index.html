@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>SHJ - Mission to Mars</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+</head>
+	  
+<body>
+  <div class="container-fluid banner" >
+    <div class= "banner-text text-center">
+      <h1>MISSION TO MARS</h1>
+      <a href="/scrape" class="banner-btn">Scrape New Data</a>
+      <div class="down-arrow"><a href="#scraped-data"><img src="../static/img/mission_to_mars.png"></a></div>
+    </div>
+  </div>
+  <div class="container-fluid news no-padding" id="scraped-data">
+    <div class="row no-gutter">
+      <div class="card-body">
+        <h5 class="card-title" id="font">Latest Mars News</h5>
+        <h6 class="card-subtitle mb-2 " id="font">{{ mars.news_title }}</h6>
+        <p class="card-text">{{ mars.summary }}</p>
+        <a href={{ mars.news_url }} target="_blank">Check All News</a>
+      </div>
+    </div>
+    <div class="row no-gutter img-table">
+      <div class="col-md-6" >
+        <div class="card">
+          <div class="card-body" id="img-table">
+            <h5 class="card-title">Featured Mars Image</h5>
+            <p class="card-text" id="dark-font">{{ mars.featured_image_title }}</p>
+            <img class="card-img-bottom" src="{{ mars.featured_image }}" alt="Featured Mars Images">
+            <a href={{ mars.jpl_url }} target="_blank">Check All Images</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" >
+        <div class="card">
+          <div class="card-body" id="img-table">
+            <div class="col-md-12">
+              <h5 class="card-title">Current Weather on Mars</h5>
+              <p class="card-text" id="dark-font">{{ mars.weather }}</p>
+            </div>
+          </div>
+          <div class="card-body" id="img-table">
+            <div class="col-md-12">
+              <div>
+                <h5 class="card-title">Mars Facts</h5>
+                <p class="card-text"id="dark-font" >{{ mars.fact_table | safe }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="card-body id="image>
+    <div class="col-md-12">
+      <h3 align="center" id="font">Mars Hemisphere</h3>
+      <div class="row">
+        {% for hem in mars.hemisphere_image_urls %}
+          <div class="col-md-3">
+            <button type="button" class="btn-custom" data-toggle="modal" data-target="#{{ hem.title.replace(' ','-') }}"><img src="{{ hem.img_url }}" class="img-thumbnail"  alt="{{hem.title}}">
+            </button>
+            <h6 class="card-text" align="center" id="font">{{ hem.title }}</h6>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% for hem in mars.hemisphere_image_urls %}
+  <div class="modal fade" id="{{ hem.title.replace(' ','-') }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ hem.title }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" id="close-botton">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{ hem.img_url }}" class=" img-fluid"  alt="{{ hem.title }}">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+  <footer class="footer">
+    <div class="container">
+      <p class="text text-center">
+        <small>© Copyright Data Analytics Bootcamp 2019</small>
+      </p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
